@@ -7,19 +7,18 @@ import (
 	"github.com/google/uuid"
 
 	"github.com/user/kanban-saas/pkg/model"
-	"github.com/user/kanban-saas/services/card/internal/repository"
 )
 
 type CardService struct {
-	cardRepo     *repository.CardRepository
-	labelRepo    *repository.LabelRepository
-	commentRepo  *repository.CommentRepository
+	cardRepo    CardRepository
+	labelRepo   LabelRepository
+	commentRepo CommentRepository
 }
 
 func NewCardService(
-	cardRepo *repository.CardRepository,
-	labelRepo *repository.LabelRepository,
-	commentRepo *repository.CommentRepository,
+	cardRepo CardRepository,
+	labelRepo LabelRepository,
+	commentRepo CommentRepository,
 ) *CardService {
 	return &CardService{
 		cardRepo:    cardRepo,
